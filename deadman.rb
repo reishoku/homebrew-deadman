@@ -9,8 +9,8 @@ class Deadman < Formula
   depends_on "python3"
 
   def install
-    bin.install Dir[buildpath/"deadman"]
-    share.install Dir[buildpath/"deadman.conf"]
+    bin.install "deadman"
+    share.install "deadman.conf"
   end
 
   test do
