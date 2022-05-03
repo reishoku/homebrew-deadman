@@ -22,14 +22,14 @@ class Deadman < Formula
     venv = virtualenv_create(libexec, "python3")
     venv.pip_install resources
 
-    system "#{libexec}/bin/python", "setup.py",
-                     "configure",
-                     "--prefix=#{libexec}"
-    system "#{libexec}/bin/python", "setup.py",
-                     "--no-user-cfg",
-                     "--no-update-icon-cache",
-                     "--no-compile-schemas",
-                     "install"
+    # system "#{libexec}/bin/python", "setup.py",
+    #                  "configure",
+    #                  "--prefix=#{libexec}"
+    # system "#{libexec}/bin/python", "setup.py",
+    #                  "--no-user-cfg",
+    #                  "--no-update-icon-cache",
+    #                  "--no-compile-schemas",
+    #                  "install"
 
     # install deadman commands with PATH set to Python virtualenv environment
     bin.install Dir[bin/"deadman"]
