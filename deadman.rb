@@ -1,4 +1,4 @@
-class VirtManager < Formula
+class Deadman < Formula
   include Language::Python::Virtualenv
 
   desc "deadman is a curses-based host status checking application using ping"
