@@ -6,8 +6,6 @@ class Deadman < Formula
   head "https://github.com/upa/deadman.git", branch: "master"
   license "MIT"
 
-  depends_on "pkg-config" => :build
-
   depends_on "python3"
 
   # resource "requests" do
