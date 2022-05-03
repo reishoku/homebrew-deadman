@@ -13,9 +13,9 @@ class Deadman < Formula
     venv = virtualenv_create(libexec, "python3")
 
     # install deadman commands with PATH set to Python virtualenv environment
-    bin.install Dir[bin/"deadman"]
-    share.install Dir[share/"deadman.conf"]
-    venv.pip_install_and_link buildpath
+    bin.install Dir[buildpath/"deadman"]
+    share.install Dir[buildpath/"deadman.conf"]
+    # venv.pip_install_and_link buildpath
   end
 
   # def post_install
