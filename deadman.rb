@@ -3,8 +3,9 @@ class Deadman < Formula
 
   desc "deadman is a curses-based host status checking application using ping"
   homepage "https://github.com/upa/deadman"
-  head "https://github.com/upa/deadman.git", branch: "master"
+  version "[ver 22.02.10]"
   license "MIT"
+  head "https://github.com/upa/deadman.git", branch: "master"
 
   depends_on "python3"
 
@@ -19,7 +20,7 @@ class Deadman < Formula
   # end
 
   def install
-    venv = virtualenv_create(bin, "python3")
+    venv = virtualenv_create(libexec, "python3")
     venv.pip_install resources
 
     # system "#{libexec}/bin/python", "setup.py",
@@ -33,13 +34,12 @@ class Deadman < Formula
 
     # install deadman commands with PATH set to Python virtualenv environment
     bin.install Dir[bin/"deadman"]
-    bin.env_script_all_files("bin", :PATH => "#{bin}:$PATH")
-
     share.install Dir[share/"deadman.conf"]
+    venv.pip_install_and_link buildpath
   end
 
   def post_install
-    # manual schema compile step
+    system Formula["python3"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
   end
 
   test do
