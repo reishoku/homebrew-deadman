@@ -19,7 +19,7 @@ class Deadman < Formula
   # end
 
   def install
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(bin, "python3")
     venv.pip_install resources
 
     # system "#{libexec}/bin/python", "setup.py",
