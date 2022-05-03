@@ -18,9 +18,9 @@ class Deadman < Formula
     venv.pip_install_and_link buildpath
   end
 
-  def post_install
-    system Formula["python3"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
-  end
+  # def post_install
+  #   system Formula["python3"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
+  # end
 
   test do
     system "#{bin}/deadman", "--version"
